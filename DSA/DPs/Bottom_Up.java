@@ -1,12 +1,10 @@
 package DSA.DPs;
 
-public class Fib_Bottom_Up {
+public class Bottom_Up {
     static int counter = 0;
 
     public static int fib(int n) { 
-    
             int[] fibList = new int[n + 1]; 
-    
             fibList[0] = 0; 
     
             if (n > 0) 
@@ -21,11 +19,8 @@ public class Fib_Bottom_Up {
         }
 
     public static void main(String[] args) {
-    
         int n = 20;
-        
         System.out.println("\nFib of " + n + " = " + fib(n));
-        
         System.out.println("\nCounter: " + counter);
         
     }
@@ -33,11 +28,8 @@ public class Fib_Bottom_Up {
 }
 
 // Fib of 7 = 13
-
 // Counter: 6
-
 // Fib of 20 = 6765
-
 // Counter: 19
 
 

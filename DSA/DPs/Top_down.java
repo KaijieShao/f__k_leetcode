@@ -1,6 +1,6 @@
 package DSA.DPs;
 
-public class Fib_With_Memo {
+public class Top_down {
 
     static Integer[] memo = new Integer[100];
     static int counter = 0;
