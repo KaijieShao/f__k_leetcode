@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 
 public class Graph {
-
     private HashMap<String, ArrayList<String>> adjList = new HashMap<>();
 
     public void printGraph() {
@@ -46,5 +45,5 @@ public class Graph {
         adjList.remove(vertex);
         return true;
     }
-
 }
+
