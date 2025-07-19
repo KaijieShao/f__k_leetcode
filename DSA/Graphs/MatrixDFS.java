@@ -2,8 +2,8 @@ package DSA.Graphs;
 
 import java.lang.Math;
 
-public class MatrixDFS {
 
+public class MatrixDFS {
     int dfs(int[][] grid, int r, int c, int[][] visit) {
         int ROWS = grid.length, COLS = grid[0].length;
 
