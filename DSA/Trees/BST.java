@@ -18,6 +18,10 @@ public class BST {
         }
     }
 
+
+
+
+    // Binary Search Tree 
     public boolean insert(int value) {
         Node newNode = new Node(value);
 
@@ -45,6 +49,7 @@ public class BST {
         }
     }
 
+
     public boolean contains(int value) {
         if (root == null) return false;
 
@@ -61,20 +66,93 @@ public class BST {
         return false;
     }
 
+
+
+
+    // Recursive Binary Search Tree
+    private boolean rContains(Node currentNode, int value) {
+        if (currentNode == null) return false;
+        if (currentNode.value == value) return true;
+
+        if (value < currentNode.value) {
+            return rContains(currentNode.left, value);
+        } else {
+            return rContains(currentNode.right, value);
+        }
+    }
+    
+    public boolean rContains(int value) {
+        return rContains(root, value);
+    }
+
+
+    private Node rInsert(Node currentNode, int value) {
+        if (currentNode == null) return new Node(value);
+    
+        if (value < currentNode.value) {
+            currentNode.left = rInsert(currentNode.left, value);
+        } else if (value > currentNode.value) {
+            currentNode.right = rInsert(currentNode.right, value);
+        }
+        return currentNode;
+    }
+    
+    public void rInsert(int value) {
+        if (root == null) root = new Node(value);
+
+        rInsert(root, value);
+    }
+
+
+    private Node deleteNode(Node currentNode, int value) {
+        if (currentNode == null) return null;
+    
+        if (value < currentNode.value) {
+            currentNode.left = deleteNode(currentNode.left, value);
+        } else if (value > currentNode.value) {
+            currentNode.right = deleteNode(currentNode.right, value);
+        } else {
+            if (currentNode.left == null && currentNode.right == null) {
+                currentNode = null;
+            } else if (currentNode.left == null) {
+                currentNode = currentNode.right;
+            } else if (currentNode.right == null) {
+                currentNode = currentNode.left;
+            } else {
+                int subTreeMin = minValue(currentNode.right);
+                currentNode.value = subTreeMin;
+                currentNode.right = deleteNode(currentNode.right, subTreeMin);
+            }
+        }
+        return currentNode;
+    }
+    
+    public void deleteNode(int value) {
+        root = deleteNode(root, value);
+    }
+    
+    private int minValue(Node currentNode) {
+        while (currentNode.left != null) {
+            currentNode = currentNode.left;
+        }
+        return currentNode.value;
+    }
+    
+
+
+    
+    // Tree Traversal
     public ArrayList<Integer> BFS() {
         Node currentNode = root;
-    
         Queue<Node> queue = new LinkedList<>();
-    
         ArrayList<Integer> results = new ArrayList<>();
     
         queue.add(currentNode);
     
         while (queue.size() > 0) {
             currentNode = queue.remove();
-    
             results.add(currentNode.value);
-    
+
             if (currentNode.left != null) {
                 queue.add(currentNode.left);
             }
@@ -85,6 +163,7 @@ public class BST {
         return results;
     }
     
+
     public ArrayList<Integer> DFSPreOrder() {
         ArrayList<Integer> results = new ArrayList<>();
 
@@ -100,12 +179,11 @@ public class BST {
                 }
             }
         }
-    
         new Traverse(root);
-    
         return results;
     }
         
+
     public ArrayList<Integer> DFSPostOrder() {
         ArrayList<Integer> results = new ArrayList<>();
 
@@ -120,10 +198,10 @@ public class BST {
                 results.add(currentNode.value);
             }
         }
-
         new Traverse(root);
         return results;
     }
+
 
     public ArrayList<Integer> DFSInOrder() {
         ArrayList<Integer> results = new ArrayList<>();
@@ -139,7 +217,6 @@ public class BST {
                 }
             }
         }
-
         new Traverse(root);
         return results;
     }
