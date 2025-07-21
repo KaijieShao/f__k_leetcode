@@ -1,8 +1,11 @@
 package DSA.Graphs;
 
+// Q: Find the length of the 'shortest' path (unweighted) from the top left to the bottom right
+
 import java.util.Deque;
 import java.util.ArrayDeque;
 import java.lang.Math;
+
 
 public class MatrixBFS {
 
@@ -18,7 +21,7 @@ public class MatrixBFS {
         int COLS = grid[0].length;
         int[][] visit = new int[4][4];
         Deque<int[]> queue = new ArrayDeque<>();
-
+        
         queue.add(new int[2]);
         visit[0][0] = 1;
 

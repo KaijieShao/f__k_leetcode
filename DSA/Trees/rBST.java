@@ -1,7 +1,6 @@
 package DSA.Trees;
 
 public class rBST {
-
     public Node root;
 
 	class Node {
@@ -16,9 +15,7 @@ public class rBST {
 
     private boolean rContains(Node currentNode, int value) {
         if (currentNode == null) return false;
-    
         if (currentNode.value == value) return true;
-    
         if (value < currentNode.value) {
             return rContains(currentNode.left, value);
         } else {

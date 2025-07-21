@@ -1,5 +1,7 @@
 package DSA.Graphs;
 
+// Q: Given a weighted, undirected graph, find the subset of min weight edges 1) connect all vertices, 2) no cycles
+
 import java.util.Map;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -8,8 +10,8 @@ import java.util.ArrayList;
 import java.util.Queue;
 import java.util.PriorityQueue;
 
-public class Prim {
 
+public class Prim {
     public static List<Integer[]> mst(int[][] edges, int n) {
         Map<Integer, ArrayList<Integer[]>> adj = new HashMap<>();
         for (int i = 1; i < n + 1; i++) {
@@ -30,6 +32,7 @@ public class Prim {
         List<Integer[]> mst = new ArrayList<>();
         HashSet<Integer> visit = new HashSet<>();
         visit.add(1);
+
         while(visit.size() < n){
             int[] cur = minHeap.remove();
             int w1 = cur[0], n1 = cur[1], n2 = cur[2];

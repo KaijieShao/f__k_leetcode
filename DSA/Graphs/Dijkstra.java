@@ -1,13 +1,15 @@
 package DSA.Graphs;
 
+// Q: Starting from A, find the length of the shortest path (non-negative weight) to every other node (Greedy BFS)
+
 import java.util.Map;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Queue;
 import java.util.PriorityQueue;
 
-public class Dijkstra {
 
+public class Dijkstra {
     public static Map<Integer, Integer> shortestPath(int[][] edges, int n, int src) {
         Map<Integer, ArrayList<Integer[]>> adj = new HashMap<>();
         
@@ -30,8 +32,8 @@ public class Dijkstra {
             if (shortest.containsKey(n1)) {
                 continue;
             }
-
             shortest.put(n1, w1);
+
             for (Integer[] pair : adj.get(n1)) {
                 int n2 = pair[0], w2 = pair[1];
                 if (!shortest.containsKey(n2)) {
