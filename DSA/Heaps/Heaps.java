@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Heap {
+public class Heaps {
 
     private List<Integer> heap;
 
-    public Heap() {
+    public Heaps() {
         this.heap = new ArrayList<>();
     }
 

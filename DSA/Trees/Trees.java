@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 
-public class BST {
+public class Trees {
     public Node root;
 
     class Node {
