@@ -1,6 +1,7 @@
 package DSA.Arrays;
 
 public class StaticArray {
+// Once array is declared, its capacity cannot be changed -> Add an element to a full static array will NOT work
 
     // O(1)
     public void insertEnd(int[] arr, int n, int length, int capacity) { // Length is real; Capacity is size
@@ -40,5 +41,6 @@ public class StaticArray {
         System.out.println(); // print a newline
     }
 }    
+
 
 
