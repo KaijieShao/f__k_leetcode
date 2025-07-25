@@ -1,39 +1,44 @@
 package DSA.Arrays;
 
+public class StaticArray {
 
-public class StaticArray { 
-    public void insertEnd(int[] arr, int n, int length, int capacity) { // O(1)
-        if (length < capacity) { // 'length' is real; 'capacity' is size
+    // O(1)
+    public void insertEnd(int[] arr, int n, int length, int capacity) { // Length is real; Capacity is size
+        if (length < capacity) {
             arr[length] = n;
         }
     }    
-    // Once an array is declared, its size cannot be changed 
-    // Adding an element to a full static array will NOT work
             
-    public void removeEnd(int[] arr, int length) { // O(1)
+    // O(1)
+    public void removeEnd(int[] arr, int length) {
         if (length > 0) {
-            arr[length - 1] = 0; // soft delete
+            arr[length - 1] = 0; // Soft delete
             length--;
         }
     }        
 
-    public void insertMiddle(int[] arr, int i, int n, int length) { // O(n)
-        for (int index = length - 1; index > i - 1; index--) {
-            arr[index + 1] = arr[index]; // shift right
-        }        
+    // Big O(n) -> Worst case 
+    public void insertMiddle(int[] arr, int i, int n, int length) {
+        for (int index = length - 1; index > i - 1; index--) { // Shift starting from the end to i
+            arr[index + 1] = arr[index]; // Shift elements to the right
+        }
         arr[i] = n;
     }
 
-    public void removeMiddle(int[] arr, int i, int length) { // O(n)
+    // O(n)
+    public void removeMiddle(int[] arr, int i, int length) {
         for (int index = i + 1; index < length; index++) {
-            arr[index - 1] = arr[index]; // shift left (overwriting)
+            arr[index - 1] = arr[index]; // Shift elements to the left (overwrite)
         } 
     }
 
-    public void printArr(int[] arr, int length) { // O(n)
+    // O(n)
+    public void printArr(int[] arr, int length) {
         for (int i = 0; i < length; i++) {
             System.out.print(arr[i] + " ");
         }      
-        System.out.println();
+        System.out.println(); // print a newline
     }
 }    
+
+
