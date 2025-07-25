@@ -33,9 +33,9 @@ public class SlidingWindowVariableSize {
 
         for (int R = 0; R < nums.length; R++) {          
             total += nums[R];                            // 'R' is added to the window's total sum
-            while (total >= target) {                    // Shrink the window from 'left' to find shortest length
+            while (total >= target) {                    // Found a valid candidate!
                 length = Math.min(R - L + 1, length);    
-                total -= nums[L];                        // Shrnk the window's total sum
+                total -= nums[L];                        // Removes the leftmost element from current window
                 L++;                                     // Move 'left' 1 step to the 'right', complete the 'slide'
             }
         }
