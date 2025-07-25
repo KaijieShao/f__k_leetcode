@@ -5,33 +5,32 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 
-public class Trees {
-    public Node root;
+public class BinarySearchTree {
+    public Node root; // No explicit 'BinarySearchTree' constructor if we want 'root' to be 'null' at start
 
     class Node {
-        public int value;
+        public int value; // 'public' makes 'value' field accessible from outside the 'Node'
         public Node left;
         public Node right;
 
         Node(int value) {
-            this.value = value;
+            this.value = value; // Copy the constructor 'value' into the object's 'value'
         }
     }
 
 
 
-
-    // Binary Search Tree 
+    // BST 
     public boolean insert(int value) {
         Node newNode = new Node(value);
 
-        if (root == null) {
+        if (root == null) { 
             root = newNode;
             return true;
         }
 
-        Node temp = root;
-        while (true) {
+        Node temp = root; // Set 'temp' to 'root' to safely traverse without losing original reference 
+        while (true) { // Loop runs until a return condition is met - exit point isn't predictable here
             if (newNode.value == temp.value) return false;
             if (newNode.value < temp.value) {
                 if (temp.left == null) {
@@ -54,7 +53,7 @@ public class Trees {
         if (root == null) return false;
 
         Node temp = root;
-        while (temp != null) {
+        while (temp != null) { // Reach a 'null' means you’ve gone past a leaf and didn’t find the value
             if (value < temp.value) {
                 temp = temp.left;
             } else if (value > temp.value) {
@@ -68,9 +67,8 @@ public class Trees {
 
 
 
-
-    // Recursive Binary Search Tree
-    private boolean rContains(Node currentNode, int value) {
+    // rBST
+    private boolean rContains(Node currentNode, int value) { // Encapsulates the recursive logic to client
         if (currentNode == null) return false;
         if (currentNode.value == value) return true;
 
@@ -81,45 +79,45 @@ public class Trees {
         }
     }
     
-    public boolean rContains(int value) {
+    public boolean rContains(int value) { // Constructor overloading (client call this!)
         return rContains(root, value);
     }
 
 
     private Node rInsert(Node currentNode, int value) {
-        if (currentNode == null) return new Node(value);
+        if (currentNode == null) return new Node(value); // Create and return a new node
     
         if (value < currentNode.value) {
-            currentNode.left = rInsert(currentNode.left, value);
+            currentNode.left = rInsert(currentNode.left, value); // Updates the left child after insertion
         } else if (value > currentNode.value) {
             currentNode.right = rInsert(currentNode.right, value);
         }
-        return currentNode;
+        return currentNode; 
     }
     
     public void rInsert(int value) {
         if (root == null) root = new Node(value);
 
-        rInsert(root, value);
+        rInsert(root, value); // return type is 'void' -> rInsert() is called to JUST perform insertion
     }
 
 
     private Node deleteNode(Node currentNode, int value) {
         if (currentNode == null) return null;
     
-        if (value < currentNode.value) {
+        if (value < currentNode.value) { // Recursively traverses the left subtree
             currentNode.left = deleteNode(currentNode.left, value);
         } else if (value > currentNode.value) {
             currentNode.right = deleteNode(currentNode.right, value);
         } else {
-            if (currentNode.left == null && currentNode.right == null) {
+            if (currentNode.left == null && currentNode.right == null) { // case 1: leaf
                 currentNode = null;
-            } else if (currentNode.left == null) {
+            } else if (currentNode.left == null) { // case 2: one right child
                 currentNode = currentNode.right;
-            } else if (currentNode.right == null) {
+            } else if (currentNode.right == null) { // case 3: one left child
                 currentNode = currentNode.left;
             } else {
-                int subTreeMin = minValue(currentNode.right);
+                int subTreeMin = minValue(currentNode.right); // case 4: two children
                 currentNode.value = subTreeMin;
                 currentNode.right = deleteNode(currentNode.right, subTreeMin);
             }
@@ -139,9 +137,8 @@ public class Trees {
     }
     
 
-
     
-    // Tree Traversal
+    // BFS
     public ArrayList<Integer> BFS() {
         Node currentNode = root;
         Queue<Node> queue = new LinkedList<>();
@@ -162,9 +159,11 @@ public class Trees {
         }
         return results;
     }
+
     
 
-    public ArrayList<Integer> DFSPreOrder() {
+    // DFS
+    public ArrayList<Integer> DFSPreOrder() { // root, left, right
         ArrayList<Integer> results = new ArrayList<>();
 
         class Traverse {
@@ -184,7 +183,7 @@ public class Trees {
     }
         
 
-    public ArrayList<Integer> DFSPostOrder() {
+    public ArrayList<Integer> DFSPostOrder() { // left, right, root
         ArrayList<Integer> results = new ArrayList<>();
 
         class Traverse {
@@ -203,7 +202,7 @@ public class Trees {
     }
 
 
-    public ArrayList<Integer> DFSInOrder() {
+    public ArrayList<Integer> DFSInOrder() { // left, root, right
         ArrayList<Integer> results = new ArrayList<>();
 
         class Traverse {

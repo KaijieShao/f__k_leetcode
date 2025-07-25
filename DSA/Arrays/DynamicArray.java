@@ -1,5 +1,6 @@
 package DSA.Arrays;
 
+
 public class DynamicArray {
     int capacity;
     int length;
@@ -11,7 +12,7 @@ public class DynamicArray {
         arr = new int[2];
     }
 
-    public void resize() {
+    public void resize() { // Double matters: amortized O(1) time for appending with 'pushback()'
         capacity = 2 * capacity;
         int[] newArr = new int[capacity]; 
         for (int i = 0; i < length; i++) {
@@ -20,7 +21,7 @@ public class DynamicArray {
         arr = newArr;
     }  
 
-    public void pushback(int n) {
+    public void pushback(int n) { // O(1)
         if (length == capacity) {
             this.resize();
         }
@@ -28,25 +29,25 @@ public class DynamicArray {
         length++;
     }
 
-    public void popback() {
+    public void popback() { // O(1)
         if (length > 0) {
             length--;
         }  
     }     
 
-    public int get(int i) {
+    public int get(int i) { // O(1)
         if (i < length) {
             return arr[i];
         }    
         return -1;
     }    
 
-    public void insert(int i, int n) {
+    public void insert(int i, int n) { // O(n), if middle -> O(n)
         if (i < length) {
             arr[i] = n;
             return;
         }    
-        return;
+        return; // Redundant, but signals end of function
     }        
 
     public void print() {

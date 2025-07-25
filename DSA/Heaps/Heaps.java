@@ -70,7 +70,6 @@ public class Heaps {
             if (leftIndex < heap.size() && heap.get(leftIndex) > heap.get(maxIndex)) {
                 maxIndex = leftIndex;
             }
-    
             if (rightIndex < heap.size() && heap.get(rightIndex) > heap.get(maxIndex)) {
                 maxIndex = rightIndex;
             }
