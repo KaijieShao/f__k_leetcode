@@ -1,6 +1,9 @@
 package DSA.Arrays;
 
 
+// L and R usually start at different positions and move towards each other or in the same direction
+// This often reducing time complexity compared to nested loops approach
+
 public class TwoPointer {
     
     // Q: Check if an array is palindrome.
@@ -29,11 +32,12 @@ public class TwoPointer {
             } else if (nums[L] + nums[R] < target) {
                 L++;
             } else {
-                return new int[] {L, R};
+                return new int[] {L, R};                 // Creates a new array object and fills it with L and R
             }    
         }
-        return null;
+        return null;                                    // No solution found
     }  
 }    
+
 
 
