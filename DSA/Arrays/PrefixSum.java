@@ -2,14 +2,11 @@ package DSA.Arrays;
 
 
 // 1. A prefix array (or prefix sum array) always starts at the beginning (index 0) and is continuous.
-//     [2, -1, 3, -3, 4] -> Prefix Sum: [2, 1, 4, 1, 5] or Prefix Product: [2, -2, -6, 18, 72]
+//   [2, -1, 3, -3, 4] -> Prefix Sum: [2, 1, 4, 1, 5] or Prefix Product: [2, -2, -6, 18, 72]
 
 // 2. A postfix (or suffix) sum is always calculated from some index in the array to the end.
-//     1) If you start at the very last index, the postfix sum is just that last element.
-//     2) If you start in the middle (i.e., index 2), postfix sum is the sum of all elements from index 2 to end.
-
-// i.e., [1, 2, 3, 4, 5] -> We can use prefix to calculate  [1, 2], [1, 2, 3] etc
-//                       -> We can use postfix to calculate [2, 3], [3, 4, 5] etc
+//    1) If you start at the very last index, the postfix sum is just that last element.
+//    2) If you start in the middle (i.e., index 2), postfix sum is the sum of all elements from index 2 to end.
 
 import java.util.List;
 import java.util.ArrayList;
@@ -35,8 +32,8 @@ public class PrefixSum {
         return (preRight - preLeft);                        
     }
     // i.e., If we have [1, 2, 3, 4, 5] and we want to calculate the sum of [3, 4]
-    // We already have prefix sum of this array stored in `prefix`
-    // We can simply use prefix from [1 to 4] minus the prefix from [1 to 2] to get the sum of [3, 4]    
+    //       We already have prefix sum of this array stored in `prefix`
+    //       We can simply use prefix from [1 to 4] minus the prefix from [1 to 2] to get the sum of [3, 4]    
 }
 
 
