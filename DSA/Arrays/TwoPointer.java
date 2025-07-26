@@ -1,7 +1,10 @@
 package DSA.Arrays;
 
+
 public class TwoPointer {
     
+    // Q: Check if an array is palindrome.
+
     public static boolean isPalindrome(String word) {
         int L = 0, R = word.length() - 1;
         while (L < R) {
@@ -13,6 +16,10 @@ public class TwoPointer {
         }
         return true;
     }
+
+
+    // Q: Given a sorted input array, return the two indices of two elements which sums up to the target value. 
+    //    Assume there's exactly one solution.
 
     public static int[] targetSum(int[] nums, int target) {
         int L = 0, R = nums.length - 1;
@@ -28,4 +35,5 @@ public class TwoPointer {
         return null;
     }  
 }    
+
 
