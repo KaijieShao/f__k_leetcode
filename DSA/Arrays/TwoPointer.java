@@ -1,14 +1,16 @@
 package DSA.Arrays;
 
 
-// L and R usually start at different positions and move towards each other or in the same direction
-// This often reducing time complexity compared to nested loops approach
-
 public class TwoPointer {
     
-    // Q: Check if an array is palindrome.
+    // Scenario:
+    // Searching or comparing elements in a linear data structure (like an array or string) from two ends
+    // L and R usually may start at different positions and move towards each other or in the same direction
+    // This often reducing time complexity compared to nested loops approach
 
     public static boolean isPalindrome(String word) {
+    // Q: Check if an array is palindrome
+
         int L = 0, R = word.length() - 1;
         while (L < R) {
             if (word.charAt(L) != word.charAt(R)) {
@@ -21,10 +23,9 @@ public class TwoPointer {
     }
 
 
-    // Q: Given a sorted input array, return the two indices of two elements which sums up to the target value. 
-    //    Assume there's exactly one solution.
-
     public static int[] targetSum(int[] nums, int target) {
+    // Q: Given a sorted input array, return the two indices of two elements which sums up to the target value
+
         int L = 0, R = nums.length - 1;
         while (L < R) {
             if (nums[L] + nums[R] > target) {
