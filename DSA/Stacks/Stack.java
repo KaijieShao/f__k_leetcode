@@ -4,7 +4,7 @@ package DSA.Stacks;
 public class Stack {
 
     // Scenario:
-    // Solve problems where you need to manage data in a Last-In, First-Out (LIFO) order i.e., backtracking, undo operations etc
+    // Solve problems where you need to manage data in a LIFO order i.e., backtracking, undo operations etc
     // Choose ArrayList for better cache performance and less memory per item
     // choose LinkedList for frequent dynamic resizing and simple O(1) operations without resizing costs.
 
@@ -68,7 +68,7 @@ public class Stack {
 
         Node temp = top;
         top = top.next;
-        temp.next = null;                           // Disconnect the popped node: not strictly necessary, but a good practice
+        temp.next = null;                           // Disconnect popped node: not necessary, but a good practice
         height--;
 
         return temp;
