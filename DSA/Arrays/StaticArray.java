@@ -2,7 +2,11 @@ package DSA.Arrays;
 
 
 public class StaticArray {
-// Once array is declared, its capacity cannot be changed -> Add an element to a full static array will NOT work
+
+    // Scenario:
+    // 1. Fixed size: Once created, the size can't change.
+    // 2. Wastes memory if too big, can't add if full.
+    // 3. Can't handle unpredictable data growth.
 
     // O(1)
     public void insertEnd(int[] arr, int n, int length, int capacity) { // Length is real; Capacity is size
