@@ -30,6 +30,7 @@ public class Stack {
 
     public void printStack() {                        // Print the stack from top to bottom
         Node temp = top;
+
         while (temp != null) {
             System.out.println(temp.value);
             temp = temp.next;
@@ -53,6 +54,7 @@ public class Stack {
 
     public void push(int value) {
         Node newNode = new Node(value);
+        
         if(height == 0) {
             top = newNode;
         } else {
