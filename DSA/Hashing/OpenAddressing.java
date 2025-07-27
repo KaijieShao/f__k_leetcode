@@ -33,7 +33,7 @@ public class OpenAddressing {
         for (int i = 0; i < key.length(); i++) {
             index += (int) key.charAt(i);                // Converts that character to its ASCII (integer) value
         }
-        return index % this.capacity;                    // To fit in array
+        return index % this.capacity;                   
     }
 
 
@@ -94,13 +94,13 @@ public class OpenAddressing {
         this.capacity = 2 * this.capacity;
         Pair[] newMap = new Pair[this.capacity];
 
-        Pair[] oldMap = this.map;
-        this.map = newMap;
+        Pair[] oldMap = this.map;                        // Store reference to old array
+        this.map = newMap;                               // Set map to new array
         this.size = 0;                                   // Reset the element count
     
         for (Pair p : oldMap) {
             if (p != null) {                             // Skip empty slots
-                this.put(p.key, p.val);                  // Reinsert each pair into new table
+                this.put(p.key, p.val);                  // Reinsert each pair into new table (this.map)
             }
         }
     }
