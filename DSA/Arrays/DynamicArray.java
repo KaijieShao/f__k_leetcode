@@ -2,6 +2,12 @@ package DSA.Arrays;
 
 
 public class DynamicArray {
+
+    // Scenario:
+    // 1. Size grows/shrinks as needed.
+    // 2. Efficient memory use: expands only when necessary.
+    // 3. Handles unpredictable or unknown number of elements.
+
     int capacity;
     int length;
     int[] arr;
