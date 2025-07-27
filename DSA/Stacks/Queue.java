@@ -1,6 +1,12 @@
 package DSA.Stacks;
 
+
 public class Queue {
+
+    // Scenario:
+    // Queue is designed to solve problems where you need to manage data in a First-In, First-Out (FIFO) order
+    // i.e., Used in task scheduling, buffering, printer/job queues, and order processing
+    // Advanced DS&A built on Queue: Deque, Priority Queue, BFS, Sliding Window, Round Robin etc
 
     private Node first;
     private Node last;
@@ -15,20 +21,25 @@ public class Queue {
         }
     }
 
+
     public Queue(int value) {
         Node newNode = new Node(value);
+
         first = newNode;
         last = newNode;
         length = 1;
     }
 
+
     public void printQueue() {
         Node temp = first;
+
         while (temp != null) {
             System.out.println(temp.value);
             temp = temp.next;
         }
     }
+
 
     public void getFirst() {
         if (first == null) {
@@ -38,6 +49,7 @@ public class Queue {
         }
     }
 
+
     public void getLast() {
         if (last == null) {
             System.out.println("Last: null");
@@ -46,12 +58,15 @@ public class Queue {
         }
     }
 
+
     public void getLength() {
         System.out.println("Length: " + length);
     }
 
+
     public void enqueue(int value) {
         Node newNode = new Node(value);
+
         if (length == 0) {
             first = newNode;
             last = newNode;
@@ -62,18 +77,22 @@ public class Queue {
         length++;
     }
 
+
     public Node dequeue() {
-        if(length == 0) return null;
+        if (length == 0) return null;
+
         Node temp = first;
-        if(length == 1) {
+        if (length == 1) {
             first = null;
             last = null;
-        } else {
-            first = first.next;
-            temp.next = null;
+        } else {                         // When there's more than one element in the queue
+            first = first.next;          // Makes the second node in the Queue as the new front
+            temp.next = null;            // Breaks the link from the old first node (temp)
         }
         length--;
+
         return temp;
     }
-
 }
+
+
