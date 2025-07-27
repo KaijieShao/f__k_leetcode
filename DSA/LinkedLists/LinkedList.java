@@ -2,6 +2,11 @@ package DSA.LinkedLists;
 
 
 public class LinkedList {
+
+    // Scenario:
+    // VERY efficient at inserting/removing elements at the beginning or middle - no shifting needed
+    // Sacrifice fast random access for fast structural changes
+    
     private Node head;
     private Node tail;
     private int length;
