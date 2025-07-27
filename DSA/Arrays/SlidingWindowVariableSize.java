@@ -1,15 +1,11 @@
 package DSA.Arrays;
 
 
-// Variable-size sliding window is useful when:
-// 1. The window size isn't fixed.
-// 2. You need to expand/shrink the window to meet constraints (e.g., sum, unique elements, etc.)
-
 public class SlidingWindowVariableSize {
     
     // Scenario:
-    // Sliding window size is NOT fixed, but needs to expand or shrink to meet certain conditions.
-    // Many real problems require finding max/min length subarrays that meet criteria, not just a set window size.
+    // You need to compute results (like max/min/condition) on subarrays,
+    // But the window size is NOT fixed — it can grow or shrink as needed to meet some criteria.
 
     public static int longestSubarray(int[] nums) {
     // Q: Find the 'length' of the longest subarray with the same value in each position: O(n)
