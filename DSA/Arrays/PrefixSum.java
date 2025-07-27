@@ -1,19 +1,15 @@
 package DSA.Arrays;
 
 
-// 1. A prefix array (or prefix sum array) always starts at the beginning (index 0) and is continuous.
-//   [2, -1, 3, -3, 4] -> Prefix Sum: [2, 1, 4, 1, 5] or Prefix Product: [2, -2, -6, 18, 72]
-
-// 2. A postfix (or suffix) sum is always calculated from some index in the array to the end.
-//    1) If you start at the very last index, the postfix sum is just that last element.
-//    2) If you start in the middle (i.e., index 2), postfix sum is the sum of all elements from index 2 to end.
-
 import java.util.List;
 import java.util.ArrayList;
 
 public class PrefixSum {
-    
-    // Q: Given an array of values, design a data structure that can query the sum of a subarray of the values.
+
+    // Scenario:
+    // How to efficiently answer repeated queries for the sum of any range in an array.
+    // Naive way: Sum each range every time, which is slow (O(n) per query).
+    // PrefixSum solves: Many sum queries on the same array, answered in O(1) per query after O(n) preprocessing.
 
     List<Integer> prefix;              // Interface (General)
 
@@ -25,6 +21,13 @@ public class PrefixSum {
             prefix.add(total);         // Collect every running total as you loop through the array (build prefix)
         }
     }
+
+    // 1. A prefix array (or prefix sum array) always starts at the beginning (index 0) and is continuous.
+    //   [2, -1, 3, -3, 4] -> Prefix Sum: [2, 1, 4, 1, 5] or Prefix Product: [2, -2, -6, 18, 72]
+
+    // 2. A postfix (or suffix) sum is always calculated from some index in the array to the end.
+    //    1) If you start at the very last index, the postfix sum is just that last element.
+    //    2) If you start in middle (i.e., index 2), postfix sum is the sum of all elements from index 2 to end.
 
     public int rangeSum(int left, int right) {              // Takes left and right indices as inputs
         int preRight = prefix.get(right);                   // Get the prefix sum at the right index
