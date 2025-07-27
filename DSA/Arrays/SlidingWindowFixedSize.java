@@ -5,7 +5,9 @@ import java.util.HashSet;
 
 public class SlidingWindowFixedSize {
 
-    // Q: Given an array, return true if there are two elements within a window of size 'k' that are equal.
+    // Scenario:
+    // Detect if any two equal elements exist within a fixed sliding window of size 'k' in an array.
+    // Formally: check if there are indices i and j such that nums[i] = nums[j] and |i - j| ≤ k
 
     public static boolean closeDuplicatesBruteForce(int[] nums, int k) { // Brute-force: O(n * k)
         for (int L = 0; L < nums.length; L++) {                          // Loop over all possible start indices
