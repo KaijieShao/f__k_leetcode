@@ -1,19 +1,26 @@
 package DSA.LinkedLists;
 
+
 public class FastAndSlow {
     
-    public static class ListNode {
-        int val;
-        ListNode next;
+    // Scenario:
+    // Detect cycles or find specific positions (like the middle) in a LL using only constant extra space
+    // Normal traversal can't detect cycles or find the midpoint in a single pass without extra memory!
+
+    class Node {
+        int value;
+        Node next;
     
-        public ListNode(int val) {
-            this.val = val;
+        Node(int value) {
+            this.value = value;
         }
     }
 
-    public static ListNode middleOfList(ListNode head) {
-        ListNode slow = head, fast = head;
 
+    public static Node middleOfList(Node head) {
+    // Q: Find the middle of a linked list
+
+        Node slow = head, fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
@@ -21,9 +28,11 @@ public class FastAndSlow {
         return slow;
     }
 
-    public static boolean hasCycle(ListNode head) {
-        ListNode slow = head, fast = head;
 
+    public static boolean hasCycle(Node head) {
+    // Q: Determine if a Linked List has a cycle
+
+        Node slow = head, fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
@@ -34,9 +43,11 @@ public class FastAndSlow {
         return false;
     }
 
-    public static ListNode cycleStart(ListNode head) {
-        ListNode slow = head, fast = head;
 
+    public static Node cycleStart(Node head) {
+    // Q: Determine if a Linked List has a cycle and return the head
+
+        Node slow = head, fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
@@ -49,7 +60,7 @@ public class FastAndSlow {
             return null;
         }
 
-        ListNode slow2 = head;                   
+        Node slow2 = head;                   
         while (slow != slow2) {
             slow = slow.next;  
             slow2 = slow2.next;
@@ -57,4 +68,5 @@ public class FastAndSlow {
         return slow;           
     }
 }
+
 
