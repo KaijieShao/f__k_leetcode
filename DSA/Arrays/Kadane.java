@@ -3,7 +3,8 @@ package DSA.Arrays;
 
 public class Kadane { // Greedy
 
-    // Q: Find a non-empty subarray(consecutive elements) with the largest sum.
+    // Scenario:
+    // Find the contiguous subarray with the maximum sum in a given integer array (can include negative numbers)
 
     public static int bruteForce(int[] nums) {       // O(n^2)
         int maxSum = nums[0];                        // maxSum NEVER holds more than 1 number
@@ -50,6 +51,7 @@ public class Kadane { // Greedy
         return new int[] { maxL, maxR };             // Return the bounds [start, end] of the max-sum subarray
     }
 }
+
 
 
 
