@@ -5,7 +5,7 @@ public class Kadane { // Greedy
 
     // Scenario:
     // Find the contiguous subarray with the maximum sum in a given integer array (can include negative numbers)
-    //  Brute-force is slow (O(n^2)). Kadane's algorithm solves it in O(n) time.
+    // Brute-force is slow (O(n^2)). Kadane's algorithm solves it in O(n) time
 
     public static int bruteForce(int[] nums) {       // O(n^2)
         int maxSum = nums[0];                        // maxSum NEVER holds more than 1 number
