@@ -1,6 +1,12 @@
 package DSA.LinkedLists;
 
+
 public class DoublyLinkedList {
+
+    // Scenario:
+    // 'Singly' only has 'next' pointer, so removing a node requires traversing to find the previous node
+    // 'Doubly' also has 'prev' pointer, so you can traverse both forward and backward efficiently
+    // 'DLL' solve the problem of needing efficient two-way traversal and modification, which 'SLL' cannot do
 
     private Node head;
     private Node tail;
@@ -168,5 +174,4 @@ public class DoublyLinkedList {
         length--;
         return temp;
     }
-
 }
