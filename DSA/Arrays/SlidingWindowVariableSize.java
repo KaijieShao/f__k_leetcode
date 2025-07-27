@@ -7,9 +7,13 @@ package DSA.Arrays;
 
 public class SlidingWindowVariableSize {
     
-    // Q: Find the 'length' of the longest subarray with the same value in each position: O(n)
+    // Scenario:
+    // Sliding window size is NOT fixed, but needs to expand or shrink to meet certain conditions.
+    // Many real problems require finding max/min length subarrays that meet criteria, not just a set window size.
 
     public static int longestSubarray(int[] nums) {
+    // Q: Find the 'length' of the longest subarray with the same value in each position: O(n)
+
         int length = 0;                              // Track the maximum length found so far
         int L = 0;                                   // Marks the beginning of the current subarray
 
@@ -24,10 +28,10 @@ public class SlidingWindowVariableSize {
         return length;
     }
 
-
-    // Q: Find length of minimum size subarray where the sum is greater than or equal to the 'target': O(n)
     
     public static int shortestSubarray(int[] nums, int target) {
+    // Q: Find length of minimum size subarray where the sum is greater than or equal to the 'target': O(n)
+
         int L = 0, total = 0;                            // 'total' stores sum of the elements in current window
         int length = Integer.MAX_VALUE;                  // search 'minimum', set to 'MAX_VALUE', vice versa
 
@@ -46,4 +50,6 @@ public class SlidingWindowVariableSize {
         return length;                                  
     }
 }
+
+
 
