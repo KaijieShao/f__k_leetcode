@@ -8,7 +8,7 @@ public class Stack {
     // Choose ArrayList for better cache performance and less memory per item
     // choose LinkedList for frequent dynamic resizing and simple O(1) operations without resizing costs.
 
-    private Node top;                                 // All operations (push, pop, peek) happen at the top, so ONLY track the top
+    private Node top;                                 // All operations (push, pop, peek) happen at the top
     private int height;                               // Track how many nodes are in the stack
 
     class Node {
