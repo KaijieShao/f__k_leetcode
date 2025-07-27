@@ -1,6 +1,6 @@
 package DSA.Hashing;
 
-public class LinearProbing {
+public class OpenAddressing {
 
     class Pair {
         String key;
@@ -16,7 +16,7 @@ public class LinearProbing {
     int capacity;
     Pair[] map;
 
-    public LinearProbing() {
+    public OpenAddressing() {
         this.size = 0;
         this.capacity = 2;
         this.map = new Pair[2];
