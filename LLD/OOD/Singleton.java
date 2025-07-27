@@ -1,4 +1,4 @@
-package LLD.OOD.Creational.Singleton;
+package LLD.OOD;
 
 class PrinterService {
 

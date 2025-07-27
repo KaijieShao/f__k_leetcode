@@ -1,4 +1,4 @@
-package LLD.OOD.Behavioural.State;
+package LLD.OOD;
 
 /**
  * Client class

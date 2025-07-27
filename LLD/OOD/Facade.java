@@ -1,4 +1,4 @@
-package LLD.OOD.Structural.Facade;
+package LLD.OOD;
 
 enum Brightness {
   UNKNOWN,

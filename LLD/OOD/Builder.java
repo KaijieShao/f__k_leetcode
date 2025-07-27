@@ -1,4 +1,4 @@
-package LLD.OOD.Creational.Builder;
+package LLD.OOD;
 
 enum Starter {
     SALAD,

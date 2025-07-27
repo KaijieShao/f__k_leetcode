@@ -1,4 +1,4 @@
-package LLD.OOD.Creational.Prototype;
+package LLD.OOD;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,23 +1,27 @@
 package DSA.Trees;
 
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-
 public class BinarySearchTree {
-    public Node root; // No explicit 'BinarySearchTree' constructor if we want 'root' to be 'null' at start
+
+    // Scenario:
+    // BST invented to solve inefficiency of searching, inserting, and deleting in unsorted arrays or LL (O(n))
+    // Recursion is commonly used with Advanced Sorting Algorithms and Navigating Trees
+
+    public Node root; 
 
     class Node {
-        public int value; // 'public' makes 'value' field accessible from outside the 'Node'
+        public int value; 
         public Node left;
         public Node right;
 
         Node(int value) {
-            this.value = value; // Copy the constructor 'value' into the object's 'value'
+            this.value = value; 
         }
     }
-
 
 
     // BST 
@@ -29,8 +33,8 @@ public class BinarySearchTree {
             return true;
         }
 
-        Node temp = root; // Set 'temp' to 'root' to safely traverse without losing original reference 
-        while (true) { // Loop runs until a return condition is met - exit point isn't predictable here
+        Node temp = root; 
+        while (true) {
             if (newNode.value == temp.value) return false;
             if (newNode.value < temp.value) {
                 if (temp.left == null) {
@@ -53,7 +57,7 @@ public class BinarySearchTree {
         if (root == null) return false;
 
         Node temp = root;
-        while (temp != null) { // Reach a 'null' means you’ve gone past a leaf and didn’t find the value
+        while (temp != null) {                                            // 'null' = reach 'leaf'
             if (value < temp.value) {
                 temp = temp.left;
             } else if (value > temp.value) {
@@ -68,7 +72,11 @@ public class BinarySearchTree {
 
 
     // rBST
-    private boolean rContains(Node currentNode, int value) { // Encapsulates the recursive logic to client
+    // 1. Recursive BST (rBST) does not solve a fundamentally different problem than an ordinary (iterative) BST
+    // 2. Just code becomes cleaner and easier to read for tree structures, since trees are naturally recursive 
+    // 3. No performance benefit—just a stylistic and sometimes organizational preference.
+
+    private boolean rContains(Node currentNode, int value) {              // Encapsulates logic to client
         if (currentNode == null) return false;
         if (currentNode.value == value) return true;
 
@@ -79,45 +87,49 @@ public class BinarySearchTree {
         }
     }
     
-    public boolean rContains(int value) { // Constructor overloading (client call this!)
+    public boolean rContains(int value) {                                 // Constructor overloading
         return rContains(root, value);
     }
 
 
     private Node rInsert(Node currentNode, int value) {
-        if (currentNode == null) return new Node(value); // Create and return a new node
+        if (currentNode == null) return new Node(value);                  // Create and return a new node
     
         if (value < currentNode.value) {
-            currentNode.left = rInsert(currentNode.left, value); // Updates the left child after insertion
+            currentNode.left = rInsert(currentNode.left, value);          
+            // Updates the left child of currentNode on each recursive call
+
         } else if (value > currentNode.value) {
             currentNode.right = rInsert(currentNode.right, value);
         }
         return currentNode; 
     }
     
-    public void rInsert(int value) {
-        if (root == null) root = new Node(value);
+    public void rInsert(int value) {                              
+    // It just calls the recursive insert (rInsert(root, value)) to perform insertion.
+    // All updates happen inside the tree structure (modifying nodes/links), not by returning a value -> void
 
-        rInsert(root, value); // return type is 'void' -> rInsert() is called to JUST perform insertion
+        if (root == null) root = new Node(value);
+        rInsert(root, value); 
     }
 
 
     private Node deleteNode(Node currentNode, int value) {
         if (currentNode == null) return null;
     
-        if (value < currentNode.value) { // Recursively traverses the left subtree
+        if (value < currentNode.value) {                                  // Recursively traverses the left subtree
             currentNode.left = deleteNode(currentNode.left, value);
         } else if (value > currentNode.value) {
             currentNode.right = deleteNode(currentNode.right, value);
         } else {
-            if (currentNode.left == null && currentNode.right == null) { // case 1: leaf
+            if (currentNode.left == null && currentNode.right == null) {  // case 1: leaf
                 currentNode = null;
-            } else if (currentNode.left == null) { // case 2: one right child
+            } else if (currentNode.left == null) {                        // case 2: one right child
                 currentNode = currentNode.right;
-            } else if (currentNode.right == null) { // case 3: one left child
+            } else if (currentNode.right == null) {                       // case 3: one left child
                 currentNode = currentNode.left;
             } else {
-                int subTreeMin = minValue(currentNode.right); // case 4: two children
+                int subTreeMin = minValue(currentNode.right);             // case 4: two children
                 currentNode.value = subTreeMin;
                 currentNode.right = deleteNode(currentNode.right, subTreeMin);
             }
@@ -134,18 +146,22 @@ public class BinarySearchTree {
             currentNode = currentNode.left;
         }
         return currentNode.value;
-    }
-    
+    }    
+
 
     
     // BFS
+    // BFS (Breadth-First Search) and DFS (Depth-First Search) both traverse/search trees or graphs.
+    // Same goal: Visit/search all nodes or find a specific value.
+    // Difference: 1) BFS: Level by level (uses queue)
+    //             2) DFS: As deep as possible before backtracking (uses stack or recursion)
+
     public ArrayList<Integer> BFS() {
         Node currentNode = root;
         Queue<Node> queue = new LinkedList<>();
         ArrayList<Integer> results = new ArrayList<>();
     
         queue.add(currentNode);
-    
         while (queue.size() > 0) {
             currentNode = queue.remove();
             results.add(currentNode.value);
@@ -163,13 +179,12 @@ public class BinarySearchTree {
     
 
     // DFS
-    public ArrayList<Integer> DFSPreOrder() { // root, left, right
+    public ArrayList<Integer> DFSPreOrder() {                             // root, left, right
         ArrayList<Integer> results = new ArrayList<>();
 
         class Traverse {
             Traverse(Node currentNode) {
                 results.add(currentNode.value);
-    
                 if (currentNode.left != null) {
                     new Traverse(currentNode.left);
                 }
@@ -183,7 +198,7 @@ public class BinarySearchTree {
     }
         
 
-    public ArrayList<Integer> DFSPostOrder() { // left, right, root
+    public ArrayList<Integer> DFSPostOrder() {                            // left, right, root
         ArrayList<Integer> results = new ArrayList<>();
 
         class Traverse {
@@ -202,7 +217,7 @@ public class BinarySearchTree {
     }
 
 
-    public ArrayList<Integer> DFSInOrder() { // left, root, right
+    public ArrayList<Integer> DFSInOrder() {                              // left, root, right
         ArrayList<Integer> results = new ArrayList<>();
 
         class Traverse {
@@ -220,4 +235,5 @@ public class BinarySearchTree {
         return results;
     }
 }
+
 

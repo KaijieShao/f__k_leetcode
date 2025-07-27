@@ -1,4 +1,4 @@
-package LLD.OOD.Behavioural.Strategy;
+package LLD.OOD;
 
 interface Lockable {
   void lock();
@@ -126,7 +126,7 @@ class SlidingDoor extends Door {
   //...
 }
 
-class Main {
+class Strategy {
 
   static void main(String[] args) {
     Door c;

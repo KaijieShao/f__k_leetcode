@@ -1,6 +1,9 @@
-package LLD.OOD.Creational.Factory;
+package LLD.OOD;
 
 import java.util.ArrayList;
+
+
+// Use Cases:
 
 enum Burgers {
   CHEESE,

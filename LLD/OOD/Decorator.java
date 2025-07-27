@@ -1,4 +1,4 @@
-package LLD.OOD.Structural.Decorator;
+package LLD.OOD;
 
 abstract class Beverage {
 
@@ -93,7 +93,7 @@ abstract class Beverage {
     }
   }
   
-  class Main {
+  class Decorator {
   
     public static void main(String[] args) {
       Beverage beverage = new FoamDecorator(

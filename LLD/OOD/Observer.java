@@ -1,4 +1,4 @@
-package LLD.OOD.Behavioural.Observer;
+package LLD.OOD;
 
 import java.util.ArrayList;
 import java.util.List;

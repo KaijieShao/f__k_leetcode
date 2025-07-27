@@ -1,4 +1,4 @@
-package LLD.OOD.Structural.Adapter;
+package LLD.OOD;
 
 interface JsonLogger {
     void logMessage(String message);
@@ -23,7 +23,7 @@ interface JsonLogger {
     }
   }
   
-  class Main {
+  class Adapter {
     public static void main(String[] args) {
       JsonLogger logger = new LoggerAdapter(new XmlLogger());
       logger.logMessage("<message>hello</message>");
