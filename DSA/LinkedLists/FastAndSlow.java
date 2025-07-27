@@ -56,16 +56,16 @@ public class FastAndSlow {
             }
         }
         
-        if (fast == null || fast.next == null) { 
+        if (fast == null || fast.next == null) {  // Checks if the list does NOT have a cycle
             return null;
         }
 
-        Node slow2 = head;                   
-        while (slow != slow2) {
-            slow = slow.next;  
-            slow2 = slow2.next;
+        Node slow2 = head;                        // If a cycle exists
+        while (slow != slow2) {                   
+            slow = slow.next;                     // Both slow and slow2 then move one step at a time
+            slow2 = slow2.next;                
         }
-        return slow;           
+        return slow;                              // The node where they meet is returned: start of the cycle
     }
 }
 
