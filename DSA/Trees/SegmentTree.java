@@ -1,6 +1,9 @@
 package DSA.Trees;
 
+
 public class SegmentTree {
+
+    
     int sum;
     SegmentTree left;
     SegmentTree right;
