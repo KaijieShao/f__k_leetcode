@@ -57,11 +57,12 @@ public class TreeMaze {
             return true;
         }
 
+        // Recursive case
         if (leafPath(root.left, path)) return true;      // All recursive calls share and update the same path list
         if (leafPath(root.right, path)) return true;     // If left subtree failed, try the right subtree
 
+        // Backtracking step
         path.remove(path.size() - 1);                    // Backtrack: if neither subtree worked, remove last node
-
         return false;                                    // Return false to parent, so it can try other children
     }
 }
