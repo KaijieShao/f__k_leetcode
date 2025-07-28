@@ -58,7 +58,7 @@ public class IterativeDFS {
     }
 
 
-    public static void postorder(TreeNode root) {
+    public static void postorder(TreeNode root) {           // Left, Right, Root
         Stack<TreeNode> stack = new Stack<>();              // 'root' is pushed to the 'stack' stack
         stack.push(root);                                  
 
@@ -75,7 +75,7 @@ public class IterativeDFS {
                     stack.push(curr);                       // Pushes same node back onto the stack, mark 'visited'
                     visit.push(true);
                     stack.push(curr.right);                 // Pushes right child first, then left child 
-                    visit.push(false);                 // Then... we go over the loop to pop again!
+                    visit.push(false);                 // Then... we go over the 2nd loop to pop again!
                     stack.push(curr.left);
                     visit.push(false);
                 }
