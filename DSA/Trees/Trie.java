@@ -1,44 +1,54 @@
 package DSA.Trees;
 
+
 import java.util.Map;
 import java.util.HashMap;
 
 public class Trie {
 
+    // Scenario:
+    // Trie is designed to solve the problem of efficiently storing and searching for strings, especially prefixes
+    // 1. Fast insertion, search, and prefix-matching for words in a dictionary
+    // 2. Quickly answers if a word exists, or if any word starts with a given prefix
+    // 3. Commonly used for autocomplete, spell checking, word games, and IP routing
+
     class TrieNode {
-        boolean word;   
-        Map<Character, TrieNode> children = new HashMap<>();
+        boolean word;                                         // True if the 'word' is COMPLETE i.e., 'car'
+        Map<Character, TrieNode> children = new HashMap<>();  // Key: Next character, Value: TrieNode object
     }
     
-    TrieNode root;
 
+    TrieNode root;                                            // Dummy node like a pointer and acts as a starter
     public Trie() {
-        root = new TrieNode(); 
+        root = new TrieNode();                              
     }
 
-    public void insert(String word) {
+
+    public void insert(String word) {                         // 2nd word only created when two words are diverged
         TrieNode curr = this.root;
         for (char c : word.toCharArray()) {
-            if (!curr.children.containsKey(c)) {
-                curr.children.put(c, new TrieNode());
+            if (!curr.children.containsKey(c)) {              // curr.children holds mapings from real characters
+                curr.children.put(c, new TrieNode());         // Adds a new entry (character 'c' and 'TrieNode')
             }
-            curr = curr.children.get(c);
+            curr = curr.children.get(c);                      // Follow path for each character, 1 node at a time
         }
-        curr.word = true;
+        curr.word = true;                                     // word is complete
     }
 
-    public boolean search(String word) {
+
+    public boolean search(String word) {                      // Returns true if entire word exists
         TrieNode curr = this.root;
         for (char c : word.toCharArray()) {
-            if (!curr.children.containsKey(c)) {
+            if (!curr.children.containsKey(c)) {              
                 return false;
             }
-            curr = curr.children.get(c);
+            curr = curr.children.get(c);                      
         }
-        return curr.word;
+        return curr.word;                                     // 'True' if word found, 'False' if not
     }
 
-    public boolean startsWith(String prefix) {
+
+    public boolean startsWith(String prefix) {                // Returns true as long as 'prefix' path exists
         TrieNode curr = this.root;
         for (char c : prefix.toCharArray()) {
             if (!curr.children.containsKey(c)) {
@@ -49,3 +59,4 @@ public class Trie {
         return true;
     }
 }
+
