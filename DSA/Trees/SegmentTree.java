@@ -64,12 +64,12 @@ public class SegmentTree {
         }
 
         int M = (this.L + this.R) / 2;
-        if (L > M) {
+        if (L > M) {                                              // i.e., (5, 5) -> go right
             return this.right.rangeQuery(L, R);                   // If found, return the 'sum' up the call stack
-        } else if (R <= M) {
+        } else if (R <= M) {                                      // i.e., (1, 1)
             return this.left.rangeQuery(L, R);
-        } else {                                                  // Query spans both sides -> sum both child
-            return (this.left.rangeQuery(L, M) + 
+        } else {                                                  // i.e., (2, 4)
+            return (this.left.rangeQuery(L, M) +                  // Query spans both sides -> sum both child
                     this.right.rangeQuery(M + 1, R));
         }
     }
