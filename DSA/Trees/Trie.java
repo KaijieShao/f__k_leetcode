@@ -36,7 +36,7 @@ public class Trie {
     }
 
 
-    public boolean search(String word) {                      // Returns true if entire word exists
+    public boolean search(String word) {                      // Checks for a full word match
         TrieNode curr = this.root;
         for (char c : word.toCharArray()) {
             if (!curr.children.containsKey(c)) {              
@@ -44,11 +44,11 @@ public class Trie {
             }
             curr = curr.children.get(c);                      
         }
-        return curr.word;                                     // 'True' if word found, 'False' if not
+        return curr.word;                                     // 'word' must match the whole string to be true
     }
 
 
-    public boolean startsWith(String prefix) {                // Returns true as long as 'prefix' path exists
+    public boolean startsWith(String prefix) {                // Checks for a prefix path only
         TrieNode curr = this.root;
         for (char c : prefix.toCharArray()) {
             if (!curr.children.containsKey(c)) {
@@ -56,7 +56,8 @@ public class Trie {
             }
             curr = curr.children.get(c);
         }
-        return true;
+        return true;                                          // 'prefix' can be any length ≤ word
     }
 }
+
 
