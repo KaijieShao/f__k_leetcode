@@ -83,8 +83,8 @@ public class Heaps {
     
             if (maxIndex != index) {
                 swap(index, maxIndex);
-                index = maxIndex;
-            } else {
+                index = maxIndex;                         // 'Sunk' to correct place, both indices point it is fine
+            } else {       
                 return;
             }
         }
