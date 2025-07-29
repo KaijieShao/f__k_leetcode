@@ -26,6 +26,7 @@ public class MatrixDFS {
         if (r == ROWS - 1 && c == COLS - 1) {              // Valid path: reached the bottom right corner
             return 1; 
         }
+        
         visit[r][c] = 1;                                   // Mark the current cell as 'visit'
 
         int count = 0;                                     // Initialize total path count from this cell
