@@ -1,10 +1,15 @@
 package DSA.Heaps;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Heaps {
+
+    // Scenario:
+    // Efficiently access and update the largest (max-heap) or smallest (min-heap) element in a dynamic set
+    // Find max/min in O(1) time, Insert/remove in O(logn) time
+    // Solves problems like Priority Queue, Scheduling, and Algorithms like Dijkstra's
 
     private List<Integer> heap;
 
@@ -12,6 +17,7 @@ public class Heaps {
         this.heap = new ArrayList<>();
     }
 
+    
     public List<Integer> getHeap() {
         return new ArrayList<>(heap);
     }
@@ -34,6 +40,7 @@ public class Heaps {
         heap.set(index2, temp);
     }
 
+
     public void insert(int value) {
         heap.add(value);
         int current = heap.size() - 1;
@@ -44,17 +51,17 @@ public class Heaps {
         }
     }    
 
+
     public Integer remove() {
         if (heap.size() == 0) {
             return null;
         }
-    
         if (heap.size() == 1) {
             return heap.remove(0);
         }
     
         int maxValue = heap.get(0);
-        heap.set(0, heap.remove(heap.size() - 1));
+        heap.set(0, heap.remove(heap.size() - 1));   // Keeps the heap as a complete binary tree
         sinkDown(0);
     
         return maxValue;
@@ -82,5 +89,5 @@ public class Heaps {
             }
         }
     }
-    
 }
+
