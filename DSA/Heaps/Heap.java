@@ -4,7 +4,7 @@ package DSA.Heaps;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Heaps {
+public class Heap {
 
     // Scenario:
     // Efficiently access and update the largest (max-heap) or smallest (min-heap) element in a dynamic set
@@ -13,7 +13,7 @@ public class Heaps {
 
     private List<Integer> heap;
 
-    public Heaps() {
+    public Heap() {
         this.heap = new ArrayList<>();
     }
 
