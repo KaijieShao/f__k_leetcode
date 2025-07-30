@@ -20,7 +20,6 @@ public class Bottom_Up {
             counter++; 
             fibList[index] = fibList[index - 1] + fibList[index - 2]; 
         }
-    
         return fibList[n]; 
     }
 
@@ -30,3 +29,4 @@ public class Bottom_Up {
         System.out.println("\nCounter: " + counter);
     }
 }
+
