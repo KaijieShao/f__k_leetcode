@@ -59,7 +59,7 @@ public class MatrixBFS {
                     visit[newR][newC] = 1;      // Marks the j neighbor as visited
                 }
             }
-            length++;
+            length++;                           // Increment for each BFS level -> shortest path steps so far
         }
         return length;
     }
