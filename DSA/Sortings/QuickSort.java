@@ -6,11 +6,9 @@ import java.util.Arrays;
 public class QuickSort {
 
     // Scenario:
-    // 1. Pick a pivot element
-    // 2. Partition the array around the pivot
-    // 3. Repeat for each partition
-    // 4. Repeat until the array is sorted
-    // 5. Repeat for all elements
+    // QuickSort uses O(log n) space for recursion in the average/best case (vs. MergeSort’s O(n))
+    // Choose MergeSort when you need stability, guaranteed O(nlogn) time, or are sorting huge/external data
+    // Choose QuickSort for in-place, fast average-case sorting of in-memory data, when stability isn’t needed
 
     private static void swap(int[] array, int firstIndex, int secondIndex) {
         int temp = array[firstIndex];
@@ -18,35 +16,34 @@ public class QuickSort {
         array[secondIndex] = temp;
     }
 
+
     private static int pivot(int[] array, int pivotIndex, int endIndex) {
         int swapIndex = pivotIndex;
-        for (int i = pivotIndex + 1; i <= endIndex; i++) {
+        for (int i = pivotIndex + 1; i <= endIndex; i++) { // Pivot -> Smaller than pivot -> Larger than pivot
             if (array[i] < array[pivotIndex]) {
                 swapIndex++;
                 swap(array, swapIndex, i);
             }
         }
-        swap(array, pivotIndex, swapIndex);
+        swap(array, pivotIndex, swapIndex);                // Smaller than pivot -> Pivot -> Larger than pivot
 
         return swapIndex;
     }
 
-    private static void quickSortHelper(int[] array, int left, int right) {
+
+    // O(n log n) time, O(log n) space
+    private static void quickSort(int[] array, int left, int right) {  // 'void' means the array is sorted in place
         if (left < right) {
             int pivotIndex = pivot(array, left, right);
-            quickSortHelper(array, left, pivotIndex-1);
-            quickSortHelper(array, pivotIndex+1, right);
+            quickSort(array, left, pivotIndex-1);
+            quickSort(array, pivotIndex+1, right);
         }
-    }
-
-    public static void quickSort(int[] array) {
-        quickSortHelper(array, 0, array.length-1);
     }
 
     public static void main(String[] args) {
         int[] myArray = {4,6,1,7,3,2,5};
-        quickSort(myArray);
+        quickSort(myArray, 0, 6);
         System.out.println( Arrays.toString( myArray ) );
     }
-
 }
+
