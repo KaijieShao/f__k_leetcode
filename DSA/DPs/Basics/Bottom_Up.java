@@ -1,4 +1,4 @@
-package DSA.DPs;
+package DSA.DPs.Basics;
 
 
 public class Bottom_Up {

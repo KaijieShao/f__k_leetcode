@@ -1,4 +1,4 @@
-package DSA.DPs;
+package DSA.DPs.Basics;
 
 
 public class One_Dimension {
