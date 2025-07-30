@@ -11,7 +11,7 @@ public class MergeSort {
     // Achieving O(n log n) time complexity in all cases, making it much more efficient for big inputs
 
     public static int[] merge(int[] array1, int[] array2) { 
-        int[] combined = new int[array1.length + array2.length];
+        int[] combined = new int[array1.length + array2.length];                       // 💥 Space!
         int index = 0;
         int i = 0;
         int j = 0;
@@ -46,7 +46,7 @@ public class MergeSort {
         if (array.length == 1) return array;               // Base case: when len(the_list) is 1
         
         int midIndex = array.length/2;                    
-        int[] left = mergeSort(Arrays.copyOfRange(array, 0, midIndex));          
+        int[] left = mergeSort(Arrays.copyOfRange(array, 0, midIndex));          // 💥 Space!
         int[] right = mergeSort(Arrays.copyOfRange(array, midIndex, array.length));
 
         return merge(left, right);
