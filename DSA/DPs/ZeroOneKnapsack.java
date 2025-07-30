@@ -35,10 +35,12 @@ public class ZeroOneKnapsack {
     }
 
 
+    
     // Top-Down Solution -> Time: O(n * m), Space: O(n * m), where n is the number of items & m is the capacity
     public static int memoization(List<Integer> profit, List<Integer> weight, int capacity) {
         int N = profit.size(), M = capacity;
         List<Integer[]> cache = new ArrayList<>();
+
         for (int row = 0; row < N; row++) {
             cache.add(row, new Integer[M + 1]);
             Arrays.fill(cache.get(row), -1);
