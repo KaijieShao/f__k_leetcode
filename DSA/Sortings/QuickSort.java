@@ -32,10 +32,10 @@ public class QuickSort {
 
 
     // O(n log n) time, O(log n) space
-    private static void quickSort(int[] array, int left, int right) {  // 'void' means the array is sorted in place
-        if (left < right) {
-            int pivotIndex = pivot(array, left, right);
-            quickSort(array, left, pivotIndex-1);
+    public static void quickSort(int[] array, int left, int right) {  // 'void' means the array is sorted in place
+        if (left < right) {                                           // Base case: left >= right
+            int pivotIndex = pivot(array, left, right);               // Finds the correct position of pivot first
+            quickSort(array, left, pivotIndex-1);                     // Recursively sort left and right halves
             quickSort(array, pivotIndex+1, right);
         }
     }
@@ -46,4 +46,5 @@ public class QuickSort {
         System.out.println( Arrays.toString( myArray ) );
     }
 }
+
 
