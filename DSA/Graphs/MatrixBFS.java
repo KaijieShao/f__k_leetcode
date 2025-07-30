@@ -23,8 +23,8 @@ public class MatrixBFS {
     };
 
     public int bfs(int[][] grid) {
-        int ROWS = grid.length;
-        int COLS = grid[0].length;
+        int ROWS = grid.length;                         // .length is used for arrays. It's field not a method()
+        int COLS = grid[0].length;                      // .size() is used for collections i.e., ArrayList
         int[][] visit = new int[4][4];
         Deque<int[]> queue = new ArrayDeque<>();         // Add / remove [row, col] pairs from both ends
         
