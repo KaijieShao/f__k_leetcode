@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Queue;
 import java.util.PriorityQueue;
 
+// Greedy: makes the optimal choice at each step, meaning it selects the best option available at each step
 
 public class Prim {
     public static List<Integer[]> mst(int[][] edges, int n) {
