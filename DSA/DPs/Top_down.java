@@ -10,7 +10,7 @@ public class Top_down {
 
     // Top-Down: Starts from the main problem (fib(n)) and recursively solves subproblems
     // Memoization: Stores results of subproblems (memo[n]) to avoid redundant calculations
-    
+
     static Integer[] memo = new Integer[100];
     static int counter = 0;
 
@@ -18,14 +18,16 @@ public class Top_down {
         counter++;
 
          if (memo[n] != null) {              
-                return memo[n]; 
-            }
-            if (n == 0 || n == 1) { 
-                return n; 
-            }
-            memo[n] = fib(n - 1) + fib(n - 2); 
-    
             return memo[n]; 
+         }
+
+         if (n == 0 || n == 1) { 
+           return n; 
+        }
+        
+        memo[n] = fib(n - 1) + fib(n - 2); 
+    
+        return memo[n]; 
     }
 
     public static void main(String[] args) {
