@@ -35,39 +35,41 @@ public class ZeroOneKnapsack {
     }
 
 
-    
+
     // Top-Down Solution -> Time: O(n * m), Space: O(n * m), where n is the number of items & m is the capacity
     public static int memoization(List<Integer> profit, List<Integer> weight, int capacity) {
         int N = profit.size(), M = capacity;
-        List<Integer[]> cache = new ArrayList<>();
 
-        for (int row = 0; row < N; row++) {
-            cache.add(row, new Integer[M + 1]);
-            Arrays.fill(cache.get(row), -1);
+        List<Integer[]> cache = new ArrayList<>();  // [current item index, current knapsack capacity]
+        for (int row = 0; row < N; row++) {         // Builds a 2D 'cache' for memoization
+            cache.add(row, new Integer[M + 1]);     // Adds a new array of size M + 1 (all possible capacities)
+            Arrays.fill(cache.get(row), -1);        // Sets every value in that new array to -1 (uncomputed)
         }
 
         return memoHelper(0, profit, weight, capacity, cache);
     }
 
-    public static int memoHelper(int i, List<Integer> profit, List<Integer> weight, int capacity, List<Integer[]> cache) {
-        if (i == profit.size()) {
+    public static int memoHelper(int i, List<Integer> profit, List<Integer> weight, int capacity, 
+                                                                                    List<Integer[]> cache) {
+        if (i == profit.size()) {             
             return 0;
         }
         if (cache.get(i)[capacity] != -1) {
             return cache.get(i)[capacity];
         }
 
-        cache.get(i)[capacity] = memoHelper(i + 1, profit, weight, capacity, cache);
+        cache.get(i)[capacity] = memoHelper(i + 1, profit, weight, capacity, cache);   // Skip it
 
         int newCap = capacity - weight.get(i);
         if (newCap >= 0) {
-            int p = profit.get(i) + memoHelper(i + 1, profit, weight, newCap, cache);
-            cache.get(i)[capacity] = Math.max(cache.get(i)[capacity], p);  
-        }
+            int p = profit.get(i) + memoHelper(i + 1, profit, weight, newCap, cache);  // Pick it
+            cache.get(i)[capacity] = Math.max(cache.get(i)[capacity], p);              
+        } 
         return cache.get(i)[capacity];
     } 
 
     
+
     // Bottom-Up Solution -> Time: O(n * m), Space: O(n * m), where n is the number of items & m is the capacity
     public static int dp(List<Integer> profit, List<Integer> weight, int capacity) {
         int N = profit.size(), M = capacity;
