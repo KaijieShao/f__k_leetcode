@@ -1,8 +1,16 @@
 package DSA.Sortings;
 
+
 import java.util.Arrays;
 
 public class QuickSort {
+
+    // Scenario:
+    // 1. Pick a pivot element
+    // 2. Partition the array around the pivot
+    // 3. Repeat for each partition
+    // 4. Repeat until the array is sorted
+    // 5. Repeat for all elements
 
     private static void swap(int[] array, int firstIndex, int secondIndex) {
         int temp = array[firstIndex];

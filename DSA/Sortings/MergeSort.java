@@ -41,6 +41,7 @@ public class MergeSort {
     }
 
 
+    // O(n log n) time, O(n) space
     public static int[] mergeSort(int[] array) {           // Creates and returns new array (not like BubbleSort)
         if (array.length == 1) return array;               // Base case: when len(the_list) is 1
         
