@@ -10,7 +10,8 @@ public class MergeSort {
     // M: Using a divide-and-conquer strategy to break the sorting problem into smaller, more manageable pieces
     // Achieving O(n log n) time complexity in all cases, making it much more efficient for big inputs
 
-    public static int[] merge(int[] array1, int[] array2) {
+    // Helper function
+    public static int[] merge(int[] array1, int[] array2) { 
         int[] combined = new int[array1.length + array2.length];
         int index = 0;
         int i = 0;
@@ -26,7 +27,7 @@ public class MergeSort {
                 j++;
             }
         }
-        while (i < array1.length) {                         // Ensures all elements from both end up in 'combined'
+        while (i < array1.length) {                        // Ensures all elements from both end up in 'combined'
             combined[index] = array1[i];
             index++;
             i++;
@@ -41,13 +42,11 @@ public class MergeSort {
     }
 
 
-    public static int[] mergeSort(int[] array) {
-        if (array.length == 1) return array;                // 2) Base case: when len(the_list) is 1
+    public static int[] mergeSort(int[] array) {           // Creates and returns new array (not like BubbleSort)
+        if (array.length == 1) return array;               // Base case: when len(the_list) is 1
         
-        int midIndex = array.length/2;                      // 1) Breaks lists in half
-
-        // 3) Uses merge() to put lists together
-        int[] left = mergeSort(Arrays.copyOfRange(array, 0, midIndex));
+        int midIndex = array.length/2;                    
+        int[] left = mergeSort(Arrays.copyOfRange(array, 0, midIndex));          
         int[] right = mergeSort(Arrays.copyOfRange(array, midIndex, array.length));
 
         return merge(left, right);
@@ -62,4 +61,5 @@ public class MergeSort {
         System.out.println( "\nSorted Array: " + Arrays.toString( sortedArray ) );
     }
 }
+
 
