@@ -17,13 +17,13 @@ public class TopologicalSort {
     // i.e., Task Scheduling: To schedule tasks with dependencies (e.g., build systems, course prerequisites)
 
     public static List<Integer> topologicalSort(int[][] edges, int n) {
-        Map<Integer, ArrayList<Integer>> adj = new HashMap<>(); // Adjacency list: node -> [neighbor, weight]
+        Map<Integer, ArrayList<Integer>> adj = new HashMap<>(); // Adjacency list: node -> [neighbor1, neighbor2, ...]
         for (int i = 1; i < n + 1; i++) {
             adj.put(i, new ArrayList<>()); 
         } 
         for (int[] edge : edges) { 
-            int src = edge[0], dst = edge[1];                   // [src, dst], NO weight!
-            adj.get(src).add(dst);                              // 'src' is 'dst's prereq
+            int src = edge[0], dst = edge[1];                   // edge[0] is the source node (prerequisite)
+            adj.get(src).add(dst);                              // edge[1] is the destination node (dependent task)
         } 
 
         List<Integer> topSort = new ArrayList<>(); 
