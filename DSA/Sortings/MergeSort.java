@@ -10,7 +10,6 @@ public class MergeSort {
     // M: Using a divide-and-conquer strategy to break the sorting problem into smaller, more manageable pieces
     // Achieving O(n log n) time complexity in all cases, making it much more efficient for big inputs
 
-    // Helper function
     public static int[] merge(int[] array1, int[] array2) { 
         int[] combined = new int[array1.length + array2.length];
         int index = 0;
@@ -61,5 +60,6 @@ public class MergeSort {
         System.out.println( "\nSorted Array: " + Arrays.toString( sortedArray ) );
     }
 }
+
 
 
