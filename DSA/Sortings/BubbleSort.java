@@ -11,6 +11,7 @@ public class BubbleSort {
     // 2. Compares adjacent items, and swaps them if they are in the wrong order 
     // 3. "bubbling" larger elements to the end.
 
+    // O(n^2) time complexity
     public static void bubbleSort(int[] array) {
         for (int i = array.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
@@ -30,6 +31,5 @@ public class BubbleSort {
         System.out.println( Arrays.toString(myArray) );      
 
     }
-
 }
 
