@@ -2,7 +2,7 @@ package DSA.DPs;
 
 import java.util.Arrays;
 
-public class Lcs {
+public class LCS {
     
     public static int dfs(String s1, String s2) {
         return dfsHelper(s1, s2, 0, 0);
